@@ -10,6 +10,7 @@ import javax.swing.JPanel
 class LFrame : JFrame() {
     init {
         defaultCloseOperation = EXIT_ON_CLOSE
+        title = "Little Dice Game"
         val screenSize = Toolkit.getDefaultToolkit().screenSize
         location = Point((screenSize.width - gameTableSize.width) / 2, (screenSize.height - gameTableSize.height - navigatorSize.height) / 2)
 
