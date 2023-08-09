@@ -124,5 +124,16 @@ class LFrame : JFrame() {
             i.text = ""
         }
         selectedBtn.clear()
+
+        var allFinished = true
+        for (i in btnArray){
+            if(i.covered != null){
+                allFinished = false
+            }
+        }
+        if(allFinished){
+            dispose()
+            println("You have won with $points points!")
+        }
     }
 }
