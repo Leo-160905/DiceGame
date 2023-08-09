@@ -7,6 +7,8 @@ val btnCount = 12
 
 var points = 0
 
+var pause = false
+
 var actionCounter = 0
 
 val btnArray: ArrayList<LButton> = ArrayList()

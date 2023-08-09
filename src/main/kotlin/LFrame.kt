@@ -27,7 +27,7 @@ class LFrame : JFrame() {
 //                btnArray[posLin].text = "$y, $x"
 
                 btnArray[posLin].addActionListener{
-                    if(btnArray[posLin].covered != null){
+                    if(btnArray[posLin].covered != null && !pause){
                         if(!btnArray[posLin].covered!!){
                             btnArray[posLin].covered = null
                             btnArray[posLin].text = ""
@@ -43,7 +43,9 @@ class LFrame : JFrame() {
                     if(actionCounter >= 3){
                         val t = Timer(500) {
                             endRound()
+                            pause = false
                         }
+                        pause = true
                         t.isRepeats = false
                         t.start()
                     }
