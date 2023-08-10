@@ -6,8 +6,10 @@ import java.util.Random
 import javax.swing.Timer
 import javax.swing.JFrame
 import javax.swing.JPanel
+import javax.swing.JTextField
 
 class LFrame : JFrame() {
+    var pointField: JTextField?
     init {
         defaultCloseOperation = EXIT_ON_CLOSE
         title = "Little Dice Game"
@@ -69,6 +71,14 @@ class LFrame : JFrame() {
             navigatorPanel.add(i)
         }
 
+        pointField = JTextField()
+        pointField?.location = Point(0,0)
+        pointField?.size = Dimension(100,25)
+        pointField?.isEditable = false
+        pointField?.text = "Points: $points"
+
+        navigatorPanel.add(pointField)
+
         val cp = contentPane
         cp.add(gamePanel, BorderLayout.CENTER)
         cp.add(navigatorPanel, BorderLayout.SOUTH)
@@ -112,7 +122,7 @@ class LFrame : JFrame() {
 
         if (selectBtn[0].text == selectBtn[1].text && selectBtn[1].text == selectBtn[2].text) {
             points += 3
-            println("your points: $points")
+            pointField?.text = "Points: $points"
         } else {
             for (i in selectedBtn.reversed()) {
                 var posLin = i.position
@@ -131,7 +141,7 @@ class LFrame : JFrame() {
             }
 
             points -= 1
-            println("your points: $points")
+            pointField?.text = "Points: $points"
         }
         for (i in selectBtn) {
             i.text = ""
